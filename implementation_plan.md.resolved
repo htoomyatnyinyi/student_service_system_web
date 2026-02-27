@@ -1,0 +1,146 @@
+# AdipatiMon – Student Service System Frontend
+
+Build a premium, modern student service system frontend app called **AdipatiMon** using:
+- **Vite + React + TypeScript** (existing project scaffold)
+- **TailwindCSS v4** for styling
+- **Redux Toolkit + RTK Query** for state management & API fetching
+- **React Router v7** for routing
+
+The backend is at `http://localhost:3000` with 12 API modules exposed via Swagger.
+
+---
+
+## Proposed Changes
+
+### 1. Foundation – Dependencies & Configuration
+
+#### [MODIFY] [package.json](file:///c:/Users/Htoo%20Myat%20Nyi%20Nyi/Desktop/project24/web_sss/package.json)
+Install runtime dependencies:
+- `@reduxjs/toolkit`, `react-redux`, `react-router-dom`
+- `tailwindcss @tailwindcss/vite`
+- `lucide-react` (icons)
+
+#### [MODIFY] [vite.config.ts](file:///c:/Users/Htoo%20Myat%20Nyi%20Nyi/Desktop/project24/web_sss/vite.config.ts)
+- Add TailwindCSS Vite plugin
+- Add API proxy: `/api` → `http://localhost:3000`
+
+#### [MODIFY] [index.css](file:///c:/Users/Htoo%20Myat%20Nyi%20Nyi/Desktop/project24/web_sss/src/index.css)
+- Replace with `@import "tailwindcss"` + custom design tokens (dark mode palette, Inter font)
+
+#### [MODIFY] [index.html](file:///c:/Users/Htoo%20Myat%20Nyi%20Nyi/Desktop/project24/web_sss/index.html)
+- Update `<title>` to "AdipatiMon – Student Services"
+- Add Google Fonts `Inter`
+
+---
+
+### 2. Redux Store & RTK Query Base
+
+#### [NEW] [store.ts](file:///c:/Users/Htoo%20Myat%20Nyi%20Nyi/Desktop/project24/web_sss/src/store/store.ts)
+Configure Redux store with RTK Query middleware + auth slice.
+
+#### [NEW] [baseApi.ts](file:///c:/Users/Htoo%20Myat%20Nyi%20Nyi/Desktop/project24/web_sss/src/store/baseApi.ts)
+Single `createApi` base with `baseQuery` pointed at `/api`, automatic `Authorization: Bearer` header injection.
+
+#### [NEW] [authSlice.ts](file:///c:/Users/Htoo%20Myat%20Nyi%20Nyi/Desktop/project24/web_sss/src/store/authSlice.ts)
+Manages `{ token, user }` in Redux state + localStorage persistence.
+
+---
+
+### 3. RTK Query API Slices (one file per module)
+
+All under `src/store/api/`. Each injects endpoints into `baseApi`.
+
+| File | Endpoints |
+|------|-----------|
+| `authApi.ts` | `register`, `login`, `getMe` |
+| `studentsApi.ts` | `getStudents`, `getStudent`, `createStudent`, `updateStudent`, `deleteStudent` |
+| `departmentsApi.ts` | `getDepartments`, `getDepartment`, `createDepartment`, `updateDepartment`, `deleteDepartment` |
+| `coursesApi.ts` | `getCourses`, `getCourse`, `createCourse`, `updateCourse`, `deleteCourse` |
+| `sectionsApi.ts` | `getSections`, `getSection`, `createSection`, `updateSection`, `deleteSection` |
+| `enrollmentApi.ts` | `createEnrollment`, `deleteEnrollment`, `getStudentEnrollments`, `getSectionEnrollments` |
+| `gradesApi.ts` | `createGrade`, `updateGrade`, `getStudentGrades` |
+| `attendanceApi.ts` | `createAttendance`, `bulkAttendance`, `getSectionAttendance`, `getStudentAttendance` |
+| `feesApi.ts` | `createFee`, `getStudentFees`, `createPayment`, `getFeePayments` |
+| `announcementsApi.ts` | `getAnnouncements`, `createAnnouncement`, `updateAnnouncement`, `deleteAnnouncement` |
+| `libraryApi.ts` | `getBooks`, `createBook`, `borrowBook`, `returnBook`, `getStudentBorrows` |
+| `examsApi.ts` | `createExam`, `getSectionExams`, `createResult`, `bulkResults`, `getStudentResults`, `getExamResults` |
+
+---
+
+### 4. TypeScript Types
+
+#### [NEW] [types/index.ts](file:///c:/Users/Htoo%20Myat%20Nyi%20Nyi/Desktop/project24/web_sss/src/types/index.ts)
+All interfaces: `User`, `Student`, `Department`, `Course`, `Section`, `Enrollment`, `Grade`, `Attendance`, `Fee`, `Payment`, `Announcement`, `Book`, `BorrowRecord`, `Exam`, `ExamResult`, enums for `Gender`, `AttendanceStatus`, `ExamType`, `PaymentMethod`, `Role`.
+
+---
+
+### 5. Layout & Shared Components
+
+#### [NEW] [components/Layout.tsx](file:///c:/Users/Htoo%20Myat%20Nyi%20Nyi/Desktop/project24/web_sss/src/components/Layout.tsx)
+Dashboard shell with collapsible sidebar + top header bar. Uses `<Outlet />` for page content.
+
+#### [NEW] [components/Sidebar.tsx](file:///c:/Users/Htoo%20Myat%20Nyi%20Nyi/Desktop/project24/web_sss/src/components/Sidebar.tsx)
+Navigation links with `lucide-react` icons, active-state highlighting, and the "AdipatiMon" brand.
+
+#### [NEW] [components/Modal.tsx](file:///c:/Users/Htoo%20Myat%20Nyi%20Nyi/Desktop/project24/web_sss/src/components/Modal.tsx)
+Reusable animated modal dialog for create/edit forms.
+
+#### [NEW] [components/DataTable.tsx](file:///c:/Users/Htoo%20Myat%20Nyi%20Nyi/Desktop/project24/web_sss/src/components/DataTable.tsx)
+Reusable table component with sorting headers and action buttons.
+
+#### [NEW] [components/StatsCard.tsx](file:///c:/Users/Htoo%20Myat%20Nyi%20Nyi/Desktop/project24/web_sss/src/components/StatsCard.tsx)
+Animated KPI card for the dashboard overview.
+
+#### [NEW] [components/ProtectedRoute.tsx](file:///c:/Users/Htoo%20Myat%20Nyi%20Nyi/Desktop/project24/web_sss/src/components/ProtectedRoute.tsx)
+Redirects to `/login` if no auth token.
+
+---
+
+### 6. Pages
+
+All under `src/pages/`:
+
+| Page | Description |
+|------|-------------|
+| `LoginPage.tsx` | Login + Register tabs |
+| `DashboardPage.tsx` | Overview stats cards |
+| `StudentsPage.tsx` | Table + CRUD modal |
+| `DepartmentsPage.tsx` | Table + CRUD modal |
+| `CoursesPage.tsx` | Table + CRUD modal |
+| `SectionsPage.tsx` | Table + CRUD modal |
+| `EnrollmentPage.tsx` | Enrollment management |
+| `GradesPage.tsx` | Grade entry & student grade view |
+| `AttendancePage.tsx` | Attendance marking (single + bulk) |
+| `FeesPage.tsx` | Fee creation + payment tracking |
+| `AnnouncementsPage.tsx` | Announcements list + CRUD |
+| `LibraryPage.tsx` | Books + borrow/return |
+| `ExamsPage.tsx` | Exam scheduling + results |
+
+---
+
+### 7. App Entry Points
+
+#### [MODIFY] [main.tsx](file:///c:/Users/Htoo%20Myat%20Nyi%20Nyi/Desktop/project24/web_sss/src/main.tsx)
+Wrap app with `<Provider>` (Redux) and `<BrowserRouter>`.
+
+#### [MODIFY] [App.tsx](file:///c:/Users/Htoo%20Myat%20Nyi%20Nyi/Desktop/project24/web_sss/src/App.tsx)
+- Define all `<Routes>` – public (`/login`) and protected (dashboard + modules)
+- Remove default Vite demo content
+
+#### [DELETE] [App.css](file:///c:/Users/Htoo%20Myat%20Nyi%20Nyi/Desktop/project24/web_sss/src/App.css)
+No longer needed; all styling via TailwindCSS.
+
+---
+
+## Verification Plan
+
+### Automated Tests
+1. **Build check**: Run `npm run build` in `web_sss/` — must compile with zero errors
+2. **Dev server**: Run `npm run dev` — must start without errors
+
+### Manual Verification
+1. Open `http://localhost:5173` in a browser
+2. You should see the Login page — register a new user, then log in
+3. After login, the sidebar should be visible with all 12 module links
+4. Click through each module link and confirm the page renders without errors
+5. Test CRUD: try creating and deleting a Department

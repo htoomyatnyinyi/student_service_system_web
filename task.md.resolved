@@ -1,0 +1,54 @@
+# AdipatiMon – Student Service System Frontend
+
+## Planning
+- [x] Fetch and analyze Swagger API documentation
+- [x] Examine existing Vite + React + TS project
+- [/] Write implementation plan and get approval
+
+## Foundation Setup
+- [ ] Install dependencies (TailwindCSS v4, Redux Toolkit, RTK Query, React Router)
+- [ ] Configure TailwindCSS
+- [ ] Set up Redux store and RTK Query `baseApi`
+- [ ] Set up React Router
+
+## RTK Query API Slices
+- [ ] Auth API (`authApi`)
+- [ ] Students API (`studentsApi`)
+- [ ] Departments API (`departmentsApi`)
+- [ ] Courses API (`coursesApi`)
+- [ ] Sections API (`sectionsApi`)
+- [ ] Enrollment API (`enrollmentApi`)
+- [ ] Grades API (`gradesApi`)
+- [ ] Attendance API (`attendanceApi`)
+- [ ] Fees API (`feesApi`)
+- [ ] Announcements API (`announcementsApi`)
+- [ ] Library API (`libraryApi`)
+- [ ] Exams API (`examsApi`)
+
+## Auth Slice (Redux)
+- [ ] Auth state slice (token, user, login/logout)
+
+## Layout & Shared Components
+- [ ] Sidebar navigation
+- [ ] Top bar / header
+- [ ] Dashboard layout wrapper
+- [ ] Reusable Table, Modal, Form components
+
+## Pages
+- [ ] Login / Register pages
+- [ ] Dashboard (overview cards)
+- [ ] Students (list + CRUD)
+- [ ] Departments (list + CRUD)
+- [ ] Courses (list + CRUD)
+- [ ] Sections (list + CRUD)
+- [ ] Enrollment management
+- [ ] Grades management
+- [ ] Attendance management
+- [ ] Fees & Payments
+- [ ] Announcements
+- [ ] Library (Books + Borrows)
+- [ ] Exams (Schedule + Results)
+
+## Verification
+- [ ] App compiles and runs (`npm run dev`)
+- [ ] Navigate all routes in browser
