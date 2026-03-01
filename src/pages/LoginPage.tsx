@@ -28,9 +28,16 @@ export const LoginPage = () => {
     try {
       if (isLogin) {
         const userData = await login({ email, password }).unwrap();
-        dispatch(
-          setCredentials({ user: userData.user, token: userData.token }),
-        );
+        // console.log(userData, "user data check tokane");
+        const user = userData?.data?.user;
+        const token = userData?.data?.token;
+        dispatch(setCredentials({ user, token }));
+        // dispatch(
+        //   setCredentials({
+        //     user: userData.user,
+        //     token: userData.token,
+        //   }),
+        // );
         navigate("/dashboard");
       } else {
         const userData = await register({
@@ -39,9 +46,12 @@ export const LoginPage = () => {
           name,
           role,
         }).unwrap();
-        dispatch(
-          setCredentials({ user: userData.user, token: userData.token }),
-        );
+        const user = userData?.data?.user;
+        const token = userData?.data?.token;
+        dispatch(setCredentials({ user, token }));
+        // dispatch(
+        //   setCredentials({ user: userData.user, token: userData.token }),
+        // );
         navigate("/dashboard");
       }
     } catch (err: any) {

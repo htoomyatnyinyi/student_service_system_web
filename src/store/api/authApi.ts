@@ -14,6 +14,7 @@ export const authApi = baseApi.injectEndpoints({
         url: "/auth/login",
         method: "POST",
         body: credentials,
+        // transformResponse: (response: any) => response.data,
       }),
     }),
     register: builder.mutation<AuthResponse, any>({
