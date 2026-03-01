@@ -1,5 +1,5 @@
 import { baseApi } from "../baseApi";
-import { Student } from "../../types";
+import type { Student } from "../../types";
 
 interface PaginatedResponse<T> {
   data: T[];

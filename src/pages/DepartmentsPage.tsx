@@ -8,7 +8,7 @@ import {
 import { DataTable } from "../components/DataTable";
 import { Modal } from "../components/Modal";
 import { Plus, Building2 } from "lucide-react";
-import { Department } from "../types";
+import type { Department } from "../types";
 
 export const DepartmentsPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);

@@ -1,5 +1,5 @@
 import { baseApi } from "../baseApi";
-import { Section } from "../../types";
+import type { Section } from "../../types";
 
 interface PaginatedResponse<T> {
   data: T[];

@@ -1,5 +1,5 @@
 import { baseApi } from "../baseApi";
-import { Grade } from "../../types";
+import type { Grade } from "../../types";
 
 export const gradesApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({

@@ -11,7 +11,7 @@ import { useGetCoursesQuery } from "../store/api/coursesApi";
 import { DataTable } from "../components/DataTable";
 import { Modal } from "../components/Modal";
 import { GraduationCap, Plus } from "lucide-react";
-import { Grade } from "../types";
+import type { Grade } from "../types";
 
 export const GradesPage = () => {
   const [selectedStudentId, setSelectedStudentId] = useState<string>("");

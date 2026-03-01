@@ -1,5 +1,5 @@
 import { baseApi } from "../baseApi";
-import { Book, BorrowRecord } from "../../types";
+import type { Book, BorrowRecord } from "../../types";
 
 interface PaginatedResponse<T> {
   data: T[];

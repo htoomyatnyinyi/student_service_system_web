@@ -19,7 +19,6 @@ function App() {
   return (
     <Routes>
       <Route path="/login" element={<LoginPage />} />
-
       <Route element={<ProtectedRoute />}>
         <Route element={<Layout />}>
           <Route path="/dashboard" element={<DashboardPage />} />

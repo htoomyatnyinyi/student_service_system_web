@@ -9,7 +9,7 @@ import { useGetDepartmentsQuery } from "../store/api/departmentsApi";
 import { DataTable } from "../components/DataTable";
 import { Modal } from "../components/Modal";
 import { BookOpen, Plus } from "lucide-react";
-import { Course } from "../types";
+import type { Course } from "../types";
 
 export const CoursesPage = () => {
   const [page, setPage] = useState(1);

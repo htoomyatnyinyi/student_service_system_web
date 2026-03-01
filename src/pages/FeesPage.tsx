@@ -9,7 +9,7 @@ import { useGetStudentsQuery } from "../store/api/studentsApi";
 import { DataTable } from "../components/DataTable";
 import { Modal } from "../components/Modal";
 import { CreditCard, Plus, Receipt } from "lucide-react";
-import { Fee, Payment } from "../types";
+import type { Fee, Payment } from "../types";
 
 export const FeesPage = () => {
   const [selectedStudentId, setSelectedStudentId] = useState<string>("");

@@ -12,7 +12,7 @@ import { useGetSectionEnrollmentsQuery } from "../store/api/enrollmentApi";
 import { DataTable } from "../components/DataTable";
 import { Modal } from "../components/Modal";
 import { FileText, Plus, CheckCircle2 } from "lucide-react";
-import { Exam, ExamType, ExamResult } from "../types";
+import type { Exam, ExamType, ExamResult } from "../types";
 
 export const ExamsPage = () => {
   const [selectedSectionId, setSelectedSectionId] = useState<string>("");

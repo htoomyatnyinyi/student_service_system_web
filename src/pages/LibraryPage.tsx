@@ -9,7 +9,7 @@ import { useGetStudentsQuery } from "../store/api/studentsApi";
 import { DataTable } from "../components/DataTable";
 import { Modal } from "../components/Modal";
 import { Library, Plus, Search } from "lucide-react";
-import { Book } from "../types";
+import type { Book } from "../types";
 
 export const LibraryPage = () => {
   const [page, setPage] = useState(1);

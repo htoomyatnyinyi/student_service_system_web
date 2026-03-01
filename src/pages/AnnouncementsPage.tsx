@@ -9,7 +9,7 @@ import { useGetDepartmentsQuery } from "../store/api/departmentsApi";
 import { DataTable } from "../components/DataTable";
 import { Modal } from "../components/Modal";
 import { Megaphone, Plus, Calendar } from "lucide-react";
-import { Announcement } from "../types";
+import type { Announcement } from "../types";
 
 export const AnnouncementsPage = () => {
   const [page, setPage] = useState(1);

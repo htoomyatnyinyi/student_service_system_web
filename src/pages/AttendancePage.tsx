@@ -10,7 +10,7 @@ import { useGetStudentsQuery } from "../store/api/studentsApi";
 import { useGetCoursesQuery } from "../store/api/coursesApi";
 import { DataTable } from "../components/DataTable";
 import { ClipboardCheck, Save } from "lucide-react";
-import { AttendanceStatus } from "../types";
+import type { AttendanceStatus } from "../types";
 
 export const AttendancePage = () => {
   const [selectedSectionId, setSelectedSectionId] = useState<string>("");

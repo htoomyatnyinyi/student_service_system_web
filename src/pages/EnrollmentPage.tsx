@@ -10,7 +10,7 @@ import { useGetCoursesQuery } from "../store/api/coursesApi";
 import { DataTable } from "../components/DataTable";
 import { Modal } from "../components/Modal";
 import { UserCheck, Plus } from "lucide-react";
-import { Enrollment } from "../types";
+import type { Enrollment } from "../types";
 
 export const EnrollmentPage = () => {
   const [selectedSectionId, setSelectedSectionId] = useState<string>("");

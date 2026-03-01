@@ -1,5 +1,5 @@
 import { baseApi } from "../baseApi";
-import { Enrollment } from "../../types";
+import type { Enrollment } from "../../types";
 
 export const enrollmentApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({

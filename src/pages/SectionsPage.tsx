@@ -9,7 +9,7 @@ import { useGetCoursesQuery } from "../store/api/coursesApi";
 import { DataTable } from "../components/DataTable";
 import { Modal } from "../components/Modal";
 import { Layers, Plus, Users } from "lucide-react";
-import { Section } from "../types";
+import type { Section } from "../types";
 
 export const SectionsPage = () => {
   const [page, setPage] = useState(1);

@@ -9,7 +9,7 @@ import { useGetDepartmentsQuery } from "../store/api/departmentsApi";
 import { DataTable } from "../components/DataTable";
 import { Modal } from "../components/Modal";
 import { Plus, UserPlus } from "lucide-react";
-import { Student } from "../types";
+import type { Student } from "../types";
 
 export const StudentsPage = () => {
   const [page, setPage] = useState(1);
