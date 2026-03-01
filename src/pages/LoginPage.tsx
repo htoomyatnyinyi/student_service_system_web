@@ -52,7 +52,7 @@ export const LoginPage = () => {
   };
 
   return (
-    <div className="flex bg-slate-50 items-center justify-center min-h-screen p-6 relative overflow-hidden">
+    <div className="flex bg-[#060b18] text-white items-center justify-center min-h-screen p-6 relative overflow-hidden">
       {/* Background Decorative Blobs */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
       <div className="absolute top-0 right-0 w-96 h-96 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
@@ -60,7 +60,7 @@ export const LoginPage = () => {
 
       <div className="w-full max-w-md bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/40 p-10 z-10">
         <div className="flex flex-col items-center mb-8">
-          <div className="p-4 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl shadow-lg mb-4">
+          <div className="p-4 bg-linear-to-br from-blue-600 to-indigo-600 rounded-2xl shadow-lg mb-4">
             <GraduationCap className="w-10 h-10 text-white" />
           </div>
           <h2 className="text-3xl font-bold text-slate-800 tracking-tight">
@@ -163,7 +163,7 @@ export const LoginPage = () => {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full mt-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-3.5 rounded-xl transition-all shadow-lg shadow-blue-500/30 flex justify-center items-center group relative overflow-hidden"
+            className="w-full mt-2 bg-linear-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-3.5 rounded-xl transition-all shadow-lg shadow-blue-500/30 flex justify-center items-center group relative overflow-hidden"
           >
             <span className="relative z-10 flex items-center">
               {isLoading ? (

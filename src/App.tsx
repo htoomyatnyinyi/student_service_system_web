@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import { Layout } from "./components/Layout";
+import { LandingPage } from "./pages/LandingPage";
 import { LoginPage } from "./pages/LoginPage";
 import { DashboardPage } from "./pages/DashboardPage";
 import { StudentsPage } from "./pages/StudentsPage";
@@ -18,6 +19,7 @@ import { ExamsPage } from "./pages/ExamsPage";
 function App() {
   return (
     <Routes>
+      <Route path="/" element={<LandingPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route element={<ProtectedRoute />}>
         <Route element={<Layout />}>
@@ -33,11 +35,9 @@ function App() {
           <Route path="/announcements" element={<AnnouncementsPage />} />
           <Route path="/library" element={<LibraryPage />} />
           <Route path="/exams" element={<ExamsPage />} />
-
-          <Route path="/" element={<Navigate to="/dashboard" replace />} />
         </Route>
       </Route>
-      <Route path="*" element={<Navigate to="/dashboard" replace />} />
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 }
